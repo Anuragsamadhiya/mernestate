@@ -19,6 +19,7 @@ const port = 3000
 app.use(cors({
   origin: 'http://localhost:5173', // Frontend URL
   credentials: true, // Allow cookies to be sent
+  origin: 'https://mern-estate-sj3a.onrender.com'
 }));
 app.use(express.json())
 app.use(cookieParser())
