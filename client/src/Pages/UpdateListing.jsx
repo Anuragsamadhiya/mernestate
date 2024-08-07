@@ -38,7 +38,7 @@ const data=await res.json()
 setformData(data)
         }
         fetchlistings()
-    },[])
+    },[params.listingid])
 const handleupload=(e)=>{
 e.preventDefault();
 if(files.length>0&&files.length+formData.imageUrl.length<7){
