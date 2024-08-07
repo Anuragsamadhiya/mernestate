@@ -102,17 +102,17 @@ setsidebarData({...sidebarData,sort,order})
   return (
     <div className='flex flex-col md:flex-row ' >
      <div className='p-7 md:min-h-screen border'>
-        <form className=' input flex flex-col gap-8 font-semibold' onSubmit={handleSubmit}>
+        <form className='  flex flex-col gap-8 font-semibold inputs' onSubmit={handleSubmit}>
             <div className='flex gap-2 items-center font-semibold'>
-<label >Search Term:</label>
-<input type="text" id='searchterm' placeholder='search....' className='p-2 rounded-lg md:w-64' onChange={handlechange}
+<label className='inputs' >Search Term:</label>
+<input type="text" id='searchterm' placeholder='search....' className='p-2 rounded-lg md:w-64 inputss focus:outline-none' onChange={handlechange}
 value={sidebarData.searchTerm}/>
 </div>
             <div className='flex flex-wrap items-center gap-2 '>
 <label  className='font-semibold'>Type:</label>
 <div className='flex gap-2'>
-<input type="checkbox" id='all'  className='w-5' onChange={handlechange} checked={sidebarData.type==='all'}/>
-<span>Rent & Sale</span>
+<input type="checkbox" id='all'  className='w-5 ' onChange={handlechange} checked={sidebarData.type==='all'}/>
+<span className='inputs'>Rent & Sale</span>
 </div>
 <div className='flex gap-2'>
 <input type="checkbox" id='rent'  className='w-5' onChange={handlechange} checked={sidebarData.type==='rent'}/>

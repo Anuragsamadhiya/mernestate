@@ -32,7 +32,7 @@ useEffect(()=>{
         <span className='text-red-600 text-xl md:text-2xl'>My</span>
         <span className='text-red-950 text-xl md:text-2xl'>Estate</span>
         </h1> </Link>
-        <form className='bg-white shadow-md rounded-md flex items-center mr-4'onSubmit={handlesubmit}>
+        <form className='bg-white shadow-md rounded-md flex items-center ml-3 md:ml-11'onSubmit={handlesubmit}>
         <input type="text" placeholder="Find your ideal property,location " className="input input-bordered w-40 md:w-80 h-7 md:h-10 focus:outline-none border-none truncate text-xs md:text-sm "
         value={searchterm}
         onChange={(e)=>{setsearchterm(e.target.value)}} />

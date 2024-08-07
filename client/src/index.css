@@ -18,10 +18,7 @@ html, body {
 .input {
   background-color: #ffffff; 
   color: #000000; /* Dark text color for light mode */
-  /* border: 1px solid #cccccc; Light border for light mode */
-  /* padding: 0.5rem; /* Padding inside the input */
-  /* border-radius: 0.25rem; Rounded corners */
-  /* font-size: 0.875rem; Font size */ 
+  
 }
 
 /* Dark mode styles */
@@ -29,7 +26,12 @@ html, body {
   .input {
     background-color: white; 
     color: black; /* Light text color for dark mode */
-    /* border: 1px solid #444444; Darker border for dark mode */
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .inputss {
+    background-color: white; 
+    color: black; /* Light text color for dark mode */
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -37,14 +39,17 @@ html, body {
     /* background-color: white;  */
     color: black; /* Light text color for dark mode */
     /* border: 1px solid #444444; Darker border for dark mode */
+    
   }
 }
 
 /* Focus state */
+
 .input:focus {
   outline: none;
-  /* border-color: #007bff; Border color on focus */
-  /* box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); Shadow on focus */
+  /* border-color: #007bff; */
+  /* box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); */
 }
+
 
  
