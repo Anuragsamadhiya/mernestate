@@ -58,7 +58,7 @@ navigate('/')
   console.log(formdata)
   return (
     <>
-    <h1 className='text-4xl text-center font-semibold my-10 md:my-20 '>Sign In</h1>
+    <h1 className='text-4xl text-center font-semibold my-10 md:my-20 inputs '>Sign In</h1>
     <div className='flex items-center justify-center '>
       <form className='md:w-1/2 flex-col space-y-8  ' onSubmit={handleclick}>
 <label className="input input-bordered flex items-center gap-2 ">
@@ -72,7 +72,7 @@ navigate('/')
     <path
       d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
   </svg>
-  <input type="text" className="grow " id='email' placeholder="Email" onChange={handlechange} />
+  <input type="text" className="grow text-black" id='email' placeholder="Email" onChange={handlechange} />
 
 </label>
 
@@ -87,14 +87,14 @@ navigate('/')
       d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
       clipRule="evenodd" />
   </svg>
-  <input type="password" className="grow" id='password' placeholder='Password' onChange={handlechange} />
+  <input type="password" className="grow inputs" id='password' placeholder='Password' onChange={handlechange} />
 </label>   
 <div className=' flex justify-between '>
 <button type="submit"  className="btn btn-success rounded-md h-5  uppercase">Sign In</button>
 
-  <p className='mt-3 md:ml-0 ml-10 md:text-xl '>Dont have an account? <Link to='/signup'><span className='underline cursor-pointer text-blue-600'>Sign Up</span></Link></p>
+  <p className='mt-3 md:ml-0 ml-10 md:text-xl inputs'>Dont have an account? <Link to='/signup'><span className='underline cursor-pointer text-blue-600'>Sign Up</span></Link></p>
  </div>
- <h1 className='text-center font-semibold '>OR</h1>
+ <h1 className='text-center font-semibold inputs '>OR</h1>
 
 <Googleauth/>
  </form>

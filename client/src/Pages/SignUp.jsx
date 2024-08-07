@@ -52,7 +52,7 @@ navigate('/signin')
     <>
     {/* <Toaster/> */}
     {/* <Toaster /> */}
-    <h1 className='text-4xl text-center font-semibold my-10 md:my-20 '>Sign Up</h1>
+    <h1 className='text-4xl text-center font-semibold my-10 md:my-20 inputs'>Sign Up</h1>
     <div className='flex items-center justify-center '>
       <form className='md:w-1/2 flex-col space-y-8  ' onSubmit={handleclick}>
 <label className="input input-bordered flex items-center gap-2 ">
@@ -97,9 +97,9 @@ navigate('/signin')
 <div className=' flex justify-between '>
 <button type="submit"  className="btn btn-success rounded-md h-5  uppercase">Sign Up</button>
 
-  <p className='mt-3 md:ml-0 ml-10 md:text-xl '>Already have an account? <Link to='/signin'><span className='underline cursor-pointer text-blue-600'>Sign In</span></Link></p>
+  <p className='mt-3 md:ml-0 ml-10 md:text-xl inputs'>Already have an account? <Link to='/signin'><span className='underline cursor-pointer text-blue-600'>Sign In</span></Link></p>
  </div>
- <h1 className='text-center font-semibold'>OR</h1>
+ <h1 className='text-center font-semibold inputs'>OR</h1>
  <Googleauth/>
 
  </form>

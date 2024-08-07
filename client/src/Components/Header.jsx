@@ -41,8 +41,8 @@ useEffect(()=>{
         </form>
        
 <ul className='flex md:gap-6 md:mt-2'>
-   <Link to='/'><li className='btn btn-ghost text-lg hidden md:inline-flex p-2'>Home</li></Link>
-   <Link to='/about'><li className='btn btn-ghost text-lg hidden md:inline-flex p-2'>About</li></Link>
+   <Link to='/'><li className='btn btn-ghost text-lg hidden md:inline-flex p-2 inputs'>Home</li></Link>
+   <Link to='/about'><li className='btn btn-ghost text-lg hidden md:inline-flex p-2 inputs'>About</li></Link>
 
 
    <Link to='/profile' >
@@ -53,7 +53,7 @@ useEffect(()=>{
                 alt='profile'
               />
             ) : (
-              <li className='btn btn-ghost text-lg p-2 md:inline-flex ml-2'> Sign in</li>
+              <li className='btn btn-ghost text-lg p-2 md:inline-flex ml-2 inputs'> Sign in</li>
             )}
    </Link>
 

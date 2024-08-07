@@ -100,9 +100,9 @@ setsidebarData({...sidebarData,sort,order})
     
 
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className='flex flex-col md:flex-row ' >
      <div className='p-7 md:min-h-screen border'>
-        <form className=' flex flex-col gap-8 font-semibold' onSubmit={handleSubmit}>
+        <form className=' input flex flex-col gap-8 font-semibold' onSubmit={handleSubmit}>
             <div className='flex gap-2 items-center font-semibold'>
 <label >Search Term:</label>
 <input type="text" id='searchterm' placeholder='search....' className='p-2 rounded-lg md:w-64' onChange={handlechange}
@@ -130,7 +130,7 @@ value={sidebarData.searchTerm}/>
 <div className='flex flex-wrap items-center gap-2 '>
 <label  className='font-semibold'>Amenties:</label>
 <div className='flex gap-2'>
-<input type="checkbox" id='parking'  className='w-5' onChange={handlechange} checked={sidebarData.parking}/>
+<input type="checkbox" id='parking'  className='w-5 ' onChange={handlechange} checked={sidebarData.parking}/>
 <span>Parking</span>
 </div>
 <div className='flex gap-2'>
@@ -140,7 +140,7 @@ value={sidebarData.searchTerm}/>
 </div>
 <div className='flex gap-2 items-center'>
 <label >Sort:</label>
-<select id='sort_order' className='font-medium text-xs p-2 rounded-md'
+<select id='sort_order' className='input font-medium text-xs p-2 rounded-md'
 onChange={handlechange} defaultValue={'created_at_desc'}>
 <option value={'regularprice_desc'}>Price High to Low</option>
 <option value={'regularprice_asc'}>Price Low to High</option>
@@ -152,8 +152,8 @@ onChange={handlechange} defaultValue={'created_at_desc'}>
         </form>
         </div>
 
-        <div className='p-7 flex-1'>
-            <h1 className='text-3xl font-semibold'>Listing Results...</h1>
+        <div className='  p-7 flex-1'>
+            <h1 className=' text-3xl font-semibold inputs'>Listing Results...</h1>
             <div className='p-4 flex flex-wrap'>
               {
                 !loading && listings.length===0 &&(

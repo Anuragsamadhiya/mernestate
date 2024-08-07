@@ -176,7 +176,7 @@ console.log(error)
 }
   return (
     <div className='w-[23rem] md:w-[32rem] flex-col  mx-auto'>
-      <h1 className='text-center font-bold text-4xl my-7'>Profile</h1>
+      <h1 className='text-center font-bold text-4xl my-7 inputs'>Profile</h1>
       <form  className='flex flex-col space-y-3' onSubmit={handlesubmit}>
         <input type="file" onChange={(e)=>{setfile(e.target.files[0])}} ref={fileref} hidden accept='image/*' />
 
@@ -199,9 +199,9 @@ console.log(error)
             ''
           )}
         </p>
-      <input type="text" placeholder='username'   id='username' onChange={handlechange} className='rounded-lg p-3' defaultValue={currentUser.username}/>
-      <input type="email" placeholder='email'   id='email' onChange={handlechange} className='rounded-lg p-3' defaultValue={currentUser.email}/>
-      <input type="password" placeholder='password'  id='password' onChange={handlechange}  className='rounded-lg p-3'/>
+      <input type="text" placeholder='username'   id='username' onChange={handlechange} className='input rounded-lg p-3' defaultValue={currentUser.username}/>
+      <input type="email" placeholder='email'   id='email' onChange={handlechange} className='input rounded-lg p-3' defaultValue={currentUser.email}/>
+      <input type="password" placeholder='password'  id='password' onChange={handlechange}  className=' input rounded-lg p-3'/>
       <button className='text-white bg-slate-700 p-2 rounded-lg hover:opacity-85 uppercase' type='submit'>Update Details</button>
       <Link to='/CreateListings' className="bg-green-400 text-white rounded-lg hover:opacity-85 uppercase p-2 text-center">Add Listing</Link>
       </form>
@@ -212,21 +212,24 @@ console.log(error)
       <div className='text-center mt-12'>
       <button className="text-white bg-green-700 p-2 w-1/2 rounded-lg  hover:opacity-85 " onClick={showlisting}  type="radio" name="my-accordion-2">{c=='yes'?'Show My Listing':'Hide My Listing'}</button>
       </div>
+    
      {
      
-      currentlisting && currentlisting.length>0 && 
       <div className='flex flex-col mt-10  '>
+        { (!currentlisting || currentlisting.length < 1) ? (
+      <h1 className='text-2xl font-semibold text-center inputs'>No Listings Found!!!</h1>
+    ):(  <>
         <h1 className='text-2xl font-semibold text-center'>Your listings</h1>
       {currentlisting.map((listing)=>(
-<div className='flex items-center justify-between gap-3 border my-4 md:-mx-72 ' key={listing._id}>
+<div className='flex items-center justify-between gap-2 border my-4 md:-mx-72 ' key={listing._id}>
   <Link to={`/listing/${listing._id}`}>
-  <img src={listing.imageUrl[0]} alt="listing cover" className='md:h-1/2 md:w-2/3 object-contain' />
+  <img src={listing.imageUrl[0]} alt="listing cover" className='md:h-[300px] md:w-[300px] object-cover w-[120px] h-[120px]' />
   </Link>
   <Link to={`/listing/${listing._id}`} className=' text-blue-600 md:text-xl hover:underline'>
   <FaEye className=''></FaEye>view</Link>
 
 
-  <Link to={`/listing/${listing._id}`} className='w-64'>
+  <Link to={`/listing/${listing._id}`} className='w-32 md:w-56'>
 <p className='md:text-xl text-slate-600 hover:underline truncate font-serif'>{listing.name}</p> 
  </Link>
  <div className='flex flex-col gap-2 text-center mr-2'>
@@ -235,6 +238,7 @@ console.log(error)
  </div>
 </div>
       ))}
+      </>)}
       </div>
      }
     </div>
