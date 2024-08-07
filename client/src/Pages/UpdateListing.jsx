@@ -33,7 +33,7 @@ const params=useParams();
     useEffect(()=>{
         const fetchlistings=async()=>{
             const listingd=params.listingid; //joid listing browser ke url m dihrai bo yh aai hai useparams hook se//
-const res=await fetch(`https://mern-estate-4rhd.onrender.com/listing/getlisting/${listingd}`)
+const res=await fetch(`https://mern-estate-4rhd.onrender.com/api/listing/getlisting/${listingd}`)
 const data=await res.json()
 setformData(data)
         }
