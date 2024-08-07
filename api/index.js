@@ -15,7 +15,7 @@ mongoose.connect(mongouri).then(()=>{
 })
 const __dirname=path.resolve()
 const app=express();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 const allowedOrigins = [
   'http://localhost:5173',
   'https://mern-estate-sj3a.onrender.com'
@@ -33,16 +33,21 @@ const corsOptions = {
   credentials: true // Allow cookies to be sent
 };
 
+
 app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
+app.listen(3000, () => {
+  console.log(`Example app listening on port 3000`)
+})
 app.use('/api/auth', useRoute);
 app.use('/api/user', signUp);
 app.use('/api/listing', listingrouter);
 
-app.use(express.static(path.join(__dirname,'/client/dist')))
-app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'client','dist','index.html'))
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 })
 app.use((err,req,res,next)=>{ //middleware for herror measage
 const statuscode=err.statuscode||500
@@ -52,7 +57,4 @@ return res.status(statuscode).json({
   statuscode,
   message
 })
-})
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
 })
