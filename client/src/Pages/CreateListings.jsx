@@ -96,7 +96,7 @@ if(e.target.type=='number'||e.target.type=='text'||e.target.type=='textarea'){
 const handlesubmit=async(e)=>{
 e.preventDefault();
 if(formData.imageUrl.length<1)return toast.error("Please upload at least one image")
-    if(formData.regularprice<formData.discountedprice)return toast.error("Discount Price must be smaller than Regular Price")
+    if(+formData.regularprice<+formData.discountedprice)return toast.error("Discount Price must be smaller than Regular Price")
 try {
     setlistingcreateerror(true)
     const res=await fetch('https://mern-estate-4rhd.onrender.com/api/listing/addlisting',{
@@ -133,12 +133,12 @@ return;
 }
   return (
     <main className='max-w-4xl mx-auto p-3'>
-        <h1 className='text-3xl text-center my-7 font-semibold'>Create Listing</h1>
-        <form className="flex flex-col sm:flex-row gap-9" onSubmit={handlesubmit}>
+        <h1 className='text-3xl text-center my-7 font-semibold inputs'>Create Listing</h1>
+        <form className="flex flex-col sm:flex-row gap-9 inputs" onSubmit={handlesubmit}>
             <div className='flex flex-col gap-4 flex-1 '>
-        <input type="text" className='border rounded-md p-4' onChange={handlechange} value={formData.name} id="name" placeholder='Name' required/>
-        <textarea type="textarea"className='border rounded-md p-4'onChange={handlechange} value={formData.description} id="description" placeholder='Description' required/>
-        <input type="text" className='border rounded-md p-4' id="address" onChange={handlechange} value={formData.address} placeholder='Address' required/>
+        <input type="text" className='border rounded-md p-4 input' onChange={handlechange} value={formData.name} id="name" placeholder='Name' required/>
+        <textarea type="textarea"className='border rounded-md p-4 input'onChange={handlechange} value={formData.description} id="description" placeholder='Description' required/>
+        <input type="text" className='border rounded-md p-4 input' id="address" onChange={handlechange} value={formData.address} placeholder='Address' required/>
         <div className='flex flex-wrap gap-6'>
             <div className='flex gap-2'>
 <input type="checkbox" name="" id="sale" className='w-5'onChange={handlechange} checked={formData.type=='sale'} />
@@ -162,16 +162,16 @@ return;
             </div>
         </div>
         <div className='flex flex-wrap gap-7'>
-            <div className='flex gap-2 items-center'>
-                <input type="number" id="bedroom" className='p-2 rounded-lg border border-gray-300' min='1'max='10' onChange={handlechange} value={formData.bedroom} required />
+            <div className='flex gap-2 items-center '>
+                <input type="number" id="bedroom" className='p-2 rounded-lg border border-gray-300 input ' min='1'max='10' onChange={handlechange} value={formData.bedroom} required />
 <p>Bedrooms</p>
             </div>
             <div className='flex gap-2 items-center'>
-                <input type="number" id="bathroom" className='p-2 rounded-lg border border-gray-300' min='1'max='10' onChange={handlechange} value={formData.bathroom}  required />
+                <input type="number" id="bathroom" className='p-2 rounded-lg border border-gray-300 input' min='1'max='10' onChange={handlechange} value={formData.bathroom}  required />
 <p>Bathrooms</p>
             </div>
             <div className='flex gap-2 items-center'>
-                <input type="number" id="regularprice" className='p-2 rounded-lg border border-gray-300' min='50'max='10000' onChange={handlechange} value={formData.regularprice} required />
+                <input type="number" id="regularprice" className='p-2 rounded-lg border border-gray-300 input' min='50'max='10000' onChange={handlechange} value={formData.regularprice} required />
                 <div className='flex flex-col items-center '>
 <p>Regular Prices</p>
     <span className>($/month)</span>
@@ -179,7 +179,7 @@ return;
             </div>
             {formData.offer &&
             <div className='flex gap-2 items-center'>
-                <input type="number" id="discountedprice" className='p-2 rounded-lg border border-gray-300' min='0'max='10000' onChange={handlechange} value={formData.discountedprice} required />
+                <input type="number" id="discountedprice" className='p-2 rounded-lg border border-gray-300 input' min='0'max='10000' onChange={handlechange} value={formData.discountedprice} required />
 <div className='flex flex-col items-center '>
 <p>Discounted Prices</p>
     <span className>($/month)</span>
