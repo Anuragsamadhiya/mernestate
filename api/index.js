@@ -15,7 +15,7 @@ mongoose.connect(mongouri).then(()=>{
 })
 const __dirname=path.resolve()
 const app=express();
-const port = 3000
+const port = process.env.PORT || 3000;
 const allowedOrigins = [
   'http://localhost:5173',
   'https://mern-estate-sj3a.onrender.com'
