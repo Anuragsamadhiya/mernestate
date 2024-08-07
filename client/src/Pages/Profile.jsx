@@ -218,7 +218,7 @@ console.log(error)
       <div className='flex flex-col mt-10  '>
         <h1 className='text-2xl font-semibold text-center'>Your listings</h1>
       {currentlisting.map((listing)=>(
-<div className='flex items-center justify-between gap-3 border my-4 md:-mx-72 -mx-4 ' key={listing._id}>
+<div className='flex items-center justify-between gap-3 border my-4 md:-mx-72 ' key={listing._id}>
   <Link to={`/listing/${listing._id}`}>
   <img src={listing.imageUrl[0]} alt="listing cover" className='md:h-1/2 md:w-2/3 object-contain' />
   </Link>
@@ -227,7 +227,7 @@ console.log(error)
 
 
   <Link to={`/listing/${listing._id}`} className=''>
-<p className='text-xl text-slate-600 hover:underline truncate font-serif'>{listing.name}</p> 
+<p className='md:text-xl text-slate-600 hover:underline truncate font-serif'>{listing.name}</p> 
  </Link>
  <div className='flex flex-col gap-2 text-center mr-2'>
   <p className='text-red-500 cursor-pointer font-bold' onClick={()=>handlelistingdelete(listing._id)}>Delete</p>

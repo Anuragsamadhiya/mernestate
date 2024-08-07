@@ -80,7 +80,7 @@ View Your profile</button></Link> }
           ))}
       </Swiper>
 <div className='max-w-6xl mx-auto mt-14 flex flex-col gap-9 '>
-      <div className='flex flex-col ml-3 '>
+      <div className='flex flex-col px-2 '>
       {offerListings && offerListings.length > 0 && (
     <>
       <p className='text-slate-800 text-xl font-semibold'>Recent Offers</p>
