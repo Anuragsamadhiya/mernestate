@@ -227,9 +227,7 @@ console.log(error)
   </Link>
   <Link to={`/listing/${listing._id}`} className=' text-blue-600 md:text-xl hover:underline'>
   <FaEye className=''></FaEye>view</Link>
-
-
-  <Link to={`/listing/${listing._id}`} className='w-32 md:w-56'>
+<Link to={`/listing/${listing._id}`} className='w-32 md:w-56'>
 <p className='md:text-xl text-slate-600 hover:underline truncate font-serif'>{listing.name}</p> 
  </Link>
  <div className='flex flex-col gap-2 text-center mr-2'>
