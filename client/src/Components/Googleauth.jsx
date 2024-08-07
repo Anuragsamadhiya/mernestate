@@ -16,7 +16,7 @@ try {
     const result=await signInWithPopup(auth,provider) //for popup window when clicking sign with google triggers a popup window for the user to sign in with Google.
     //The signInWithPopup function from Firebase Authentication returns a Promise that resolves with a UserCredential object when the sign-in process completes successfully
 
-const res=await fetch('http://localhost:3000/api/user/Google',{
+const res=await fetch('https://mern-estate-4rhd.onrender.com/api/user/Google',{
     method:'POST',
    headers:{
     "Content-Type":'application/json'

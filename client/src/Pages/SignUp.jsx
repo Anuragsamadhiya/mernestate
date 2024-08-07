@@ -21,7 +21,7 @@ setformdata({
   const handleclick=async(e)=>{
     e.preventDefault();
     try {
-      const data=await fetch("http://localhost:3000/api/user/signup",{
+      const data=await fetch("https://mern-estate-4rhd.onrender.com/api/user/signup",{
         method:'POST',
         headers:{
           "Content-type":"application/json",

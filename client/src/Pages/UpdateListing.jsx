@@ -33,7 +33,7 @@ const params=useParams();
     useEffect(()=>{
         const fetchlistings=async()=>{
             const listingd=params.listingid; //joid listing browser ke url m dihrai bo yh aai hai useparams hook se//
-const res=await fetch(`http://localhost:3000/api/listing/getlisting/${listingd}`)
+const res=await fetch(`https://mern-estate-4rhd.onrender.com/listing/getlisting/${listingd}`)
 const data=await res.json()
 setformData(data)
         }
@@ -110,7 +110,7 @@ if(formData.imageUrl.length<1)return toast.error("Please upload at least one ima
     if(+formData.regularprice<+formData.discountedprice)return toast.error("Discount Price must be smaller than Regular Price")
 try {
     setlistingcreateerror(true)
-    const res=await fetch(`http://localhost:3000/api/listing/updatelisting/${params.listingid}`,{
+    const res=await fetch(`https://mern-estate-4rhd.onrender.com/api/listing/updatelisting/${params.listingid}`,{
         method:'POST',
         headers:{
 'Content-type':'application/json'

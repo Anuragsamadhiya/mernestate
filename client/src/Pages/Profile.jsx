@@ -64,7 +64,7 @@ if(document.getElementById('username').value==='' || document.getElementById('em
 }
 
 try {
-  const res = await fetch(`http://localhost:3000/api/auth/updateuser/${currentUser._id}`, {
+  const res = await fetch(`https://mern-estate-4rhd.onrender.com/api/auth/updateuser/${currentUser._id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ dispatch(updateusersuccess(data))
 
  const handledelete=async(req,res)=>{
   try {
-    const res = await fetch(`http://localhost:3000/api/auth/deleteuser/${currentUser._id}`, {
+    const res = await fetch(`https://mern-estate-4rhd.onrender.com/api/auth/deleteuser/${currentUser._id}`, {
       method: 'DELETE',
       credentials: 'include',
   }
@@ -112,7 +112,7 @@ dispatch(updateusersuccess(data))
 
 const handlesignout=async()=>{
   try {
-    const res = await fetch("http://localhost:3000/api/user/signout", {
+    const res = await fetch("https://mern-estate-4rhd.onrender.com/api/user/signout", {
       method: 'GET',
       credentials:"include",
   }
@@ -140,7 +140,7 @@ const showlisting=async()=>{
     return
   }
   try {
-    const res=await fetch(`http://localhost:3000/api/auth/listing/${currentUser._id}`,
+    const res=await fetch(`https://mern-estate-4rhd.onrender.com/api/auth/listing/${currentUser._id}`,
      {credentials:"include",}
     )
     const data=await res.json();
@@ -157,7 +157,7 @@ const showlisting=async()=>{
 }
 const handlelistingdelete=async(listingid)=>{
   try{
-const res=await fetch(`http://localhost:3000/api/listing/deletelisting/${listingid}`,{
+const res=await fetch(`https://mern-estate-4rhd.onrender.com/api/listing/deletelisting/${listingid}`,{
   method:'DELETE',
   credentials:'include',
 })

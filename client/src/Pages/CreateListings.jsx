@@ -99,7 +99,7 @@ if(formData.imageUrl.length<1)return toast.error("Please upload at least one ima
     if(formData.regularprice<formData.discountedprice)return toast.error("Discount Price must be smaller than Regular Price")
 try {
     setlistingcreateerror(true)
-    const res=await fetch('http://localhost:3000/api/listing/addlisting',{
+    const res=await fetch('https://mern-estate-4rhd.onrender.com/api/listing/addlisting',{
         method:'POST',
         headers:{
 'Content-type':'application/json'

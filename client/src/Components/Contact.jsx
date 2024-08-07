@@ -6,7 +6,7 @@ export default function Contact({formdata}) { //props received from listing.jsx
     const[message,setmessage]=useState('');
    useEffect(()=>{
     const fetchlandlord=async()=>{
-        const getuser=await fetch(`http://localhost:3000/api/auth/${formdata.userRef}`,{
+        const getuser=await fetch(`https://mern-estate-4rhd.onrender.com/api/auth/${formdata.userRef}`,{
             credentials:'include',
         })
         const data=await getuser.json();
