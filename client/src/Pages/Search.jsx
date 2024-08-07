@@ -17,6 +17,7 @@ export default function Search() {
         offer:false,
         sort:'created_at',
         order:'desc',
+        address:''
      });
      useEffect(() => {
         const urlParams = new URLSearchParams(location.search);  //geeting url
@@ -45,6 +46,7 @@ export default function Search() {
             offer: offerFromUrl === 'true' ? true : false,
             sort: sortFromUrl || 'created_at',
             order: orderFromUrl || 'desc',
+            address:searchTermFromUrl || '',
           });
         }
         const fetchListings = async () => {
@@ -94,6 +96,8 @@ setsidebarData({...sidebarData,sort,order})
         urlParams.set('offer', sidebarData.offer);
         urlParams.set('sort', sidebarData.sort);
         urlParams.set('order', sidebarData.order);
+        urlParams.set('address',sidebarData.searchTerm);
+
         const searchQuery = urlParams.toString();
         navigate(`/search?${searchQuery}`);
       };
