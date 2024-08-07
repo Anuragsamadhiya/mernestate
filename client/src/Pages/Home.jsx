@@ -39,7 +39,7 @@ export default function Home() {
 
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/listing/getall?type=sale&limit=4');
+        const res = await fetch('https://mern-estate-4rhd.onrender.com/api/listing/getall?type=sale&limit=4');
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
