@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/listing/getall?offer=true&limit=4');
+        const res = await fetch('https://mern-estate-4rhd.onrender.com/api/listing/getall?offer=true&limit=4');
         const data = await res.json();
         setOfferListings(data);
         fetchRentListings();
@@ -28,7 +28,7 @@ export default function Home() {
     };
     const fetchRentListings = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/listing/getall?type=rent&limit=4');
+        const res = await fetch('https://mern-estate-4rhd.onrender.com/api/listing/getall?type=rent&limit=4');
         const data = await res.json();
         setRentListings(data);
         fetchSaleListings();
