@@ -16,11 +16,24 @@ mongoose.connect(mongouri).then(()=>{
 const __dirname=path.resolve()
 const app=express();
 const port = 3000
-app.use(cors({
-  origin: 'http://localhost:5173', // Frontend URL
-  credentials: true, // Allow cookies to be sent
-  origin: 'https://mern-estate-sj3a.onrender.com'
-}));
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://mern-estate-sj3a.onrender.com'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // Allow requests with no origin (like mobile apps)
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // Allow cookies to be sent
+};
+
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser())
 app.use('/api/auth', useRoute);
