@@ -19,6 +19,7 @@ export default function Profile() {
   const[filuploaderror,setfileuploaderror]=useState(false)
   const[formdata,setformdata]=useState({})
   const[currentlisting,setcurrentlisting]=useState([])
+  const[found,setfound]=useState('false');
   const dispatch=useDispatch()
   // Firebase image upload rules
   // allow read;
@@ -134,9 +135,15 @@ catch(error){
 }
 }
 const showlisting=async()=>{
+  if (!currentlisting||currentlisting.length < 1) {
+    setfound('false');
+} else {
+    setfound('true');
+}
   if(c==='no'){
     setC('yes');
     setcurrentlisting([]);
+    // setfound('false')
     return
   }
   try {
@@ -150,6 +157,7 @@ const showlisting=async()=>{
     }
     setcurrentlisting(data);
     setC('no')
+    // setfound('true');
   } catch (error) {
     toast.error("Failed getting listing")
 
@@ -216,7 +224,7 @@ console.log(error)
      {
      
       <div className='flex flex-col mt-10  '>
-        { (!currentlisting || currentlisting.length < 1) ? (
+        { (!currentlisting || currentlisting.length < 1) && found === 'false' ? (
       <h1 className='text-2xl font-semibold text-center inputs'>No Listings Found!!!</h1>
     ):(  <>
         <h1 className='text-2xl font-semibold text-center'>Your listings</h1>

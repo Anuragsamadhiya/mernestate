@@ -52,8 +52,9 @@ promise.push(storageImage(files[i])) //imageUrl are stored in proimises array wh
         setimguploaderror(false);
 
     }).catch((err)=>{
-        toast.error('Image upload failed')
-    })
+        toast.error('Image upload error: Files must be 2 MB or less.');
+        setimguploaderror(false);
+        })
 
    
 }else if(files.length+formData.imageUrl.length>6){
@@ -146,61 +147,86 @@ return;
     <main className='max-w-4xl mx-auto p-3'>
         <h1 className='text-3xl text-center my-7 font-semibold'>Update Your Listing</h1>
         <form className="flex flex-col sm:flex-row gap-9 inputs" onSubmit={handlesubmit}>
-            <div className='flex flex-col gap-4 flex-1 '>
-        <input type="text" className='border rounded-md p-4 input' onChange={handlechange} value={formData.name} id="name" placeholder='Name' required/>
-        <textarea type="textarea"className='border rounded-md p-4 input'onChange={handlechange} value={formData.description} id="description" placeholder='Description' required/>
-        <input type="text" className='border rounded-md p-4 input' id="address" onChange={handlechange} value={formData.address} placeholder='Address' required/>
-        <div className='flex flex-wrap gap-6'>
-            <div className='flex gap-2'>
-<input type="checkbox" name="" id="sale" className='w-5'onChange={handlechange} checked={formData.type=='sale'} />
-<span>Sell</span>
-            </div>
-            <div className='flex gap-2'>
-<input type="checkbox" name="" id="rent" onChange={handlechange} checked={formData.type=='rent'} className='w-5' />
-<span>Rent</span>
-            </div>
-            <div className='flex gap-2'>
-<input type="checkbox" name="" id="parking" className='w-5'onChange={handlechange} checked={formData.parking} />
-<span>Parking Spot</span>
-            </div>
-            <div className='flex gap-2'>
-<input type="checkbox" name="" id="furnished" className='w-5' onChange={handlechange} checked={formData.furnished}/>
-<span>Furnished</span>
-            </div>
-            <div className='flex gap-2'>
-<input type="checkbox" name="" id="offer" className='w-5' onChange={handlechange} checked={formData.offer} />
-<span>Offer</span>
-            </div>
-        </div>
-        <div className='flex flex-wrap gap-7'>
-            <div className='flex gap-2 items-center'>
-                <input type="number" id="bedroom" className='p-2 rounded-lg border border-gray-300 input' min='1'max='10' onChange={handlechange} value={formData.bedroom} required />
-<p>Bedrooms</p>
-            </div>
-            <div className='flex gap-2 items-center'>
-                <input type="number" id="bathroom" className='p-2 rounded-lg border border-gray-300 input' min='1'max='10' onChange={handlechange} value={formData.bathroom}  required />
-<p>Bathrooms</p>
-            </div>
-            <div className='flex gap-2 items-center'>
-                <input type="number" id="regularprice" className='p-2 rounded-lg border border-gray-300 input' min='50'max='10000' onChange={handlechange} value={formData.regularprice} required />
-                <div className='flex flex-col items-center '>
-<p>Regular Prices</p>
-    <span className>($/month)</span>
-</div>
-            </div>
-            {formData.offer &&
-            <div className='flex gap-2 items-center'>
-                <input type="number" id="discountedprice" className='p-2 rounded-lg border border-gray-300 input' min='0'max='10000' onChange={handlechange} value={formData.discountedprice} required />
-<div className='flex flex-col items-center '>
-<p>Discounted Prices</p>
-    <span className>($/month)</span>
-</div>
-            </div>}
-           
-        </div>
-        </div>
+        <div className='flex flex-col gap-4 flex-1 '>
+            
+            <div className='flex flex-row items-center font-semibold '>
+             <h1 className='text-center ml-7'>Name:</h1>
+              <input type="text" className='border rounded-md p-2 input w-full ml-5 ' onChange={handlechange} value={formData.name} id="name" placeholder='Enter  name' required/>
+              </div>
+              <div className='flex flex-row items-center gap-2 font-semibold '>
+              <h1 className='text-center'>Description:</h1> 
+              <textarea type="textarea"className='border rounded-md p-4 input w-full'onChange={handlechange} value={formData.description} id="description" placeholder='Enter Description' required/>      
+              </div>
+              <div className='flex flex-row items-center gap-2 font-semibold '>
+              <h1 className='text-center ml-5'>Location:</h1> 
+             <input type="text" className='border rounded-md p-4 input m w-full' id="address" onChange={handlechange} value={formData.address} placeholder='Enter Location' required/>
+             </div>
+     
+             <div className=' flex flex-wrap gap-6 ml-5 mt-5'>
+            
+     
+                 {/* <div className='flex gap-2'> */}
+                     <div className='flex flex-col'>
+                 <h2 className='font-semibold'>Select Property Type</h2>
+                 <div className='mt-2 gap-2 flex'>
+     <input type="checkbox" name="" id="sale" className='w-5'onChange={handlechange} checked={formData.type=='sale'} />
+     <span className='mr-5'>Sell</span>
+     {/* </div> */}
+     
+                 {/* <div className='flex gap-2'> */}
+     <input type="checkbox" name="" id="rent" onChange={handlechange} checked={formData.type=='rent'} className='w-5' />
+     <span>Rent</span> 
+                 </div>
+                 </div>
+     </div>
+                 <div className='flex flex-wrap gap-6 ml-5 mt-4 mb-6'>
+                     <div className='flex flex-col '>
+                     <h1 className='font-semibold'>Select Additional Features </h1>
+                     <div>
+                 <div className='flex gap-2 mt-2'>
+     <input type="checkbox" name="" id="parking" className='w-5'onChange={handlechange} checked={formData.parking} />
+     <span className='md:mr-5 mr-2'>Parking Space</span>
+     
+     <input type="checkbox" name="" id="furnished" className='w-5' onChange={handlechange} checked={formData.furnished}/>
+     <span className='md:mr-5 mr-2'>Furnished</span>
+                 
+     <input type="checkbox" name="" id="offer" className='w-5 bg-white ' onChange={handlechange} checked={formData.offer} />
+     <span>Offer</span>
+     </div>
+             </div>
+             </div>
+             </div>
+             <div className='flex flex-wrap gap-7 ml-5'>
+                 <div className='flex gap-2 items-center '>
+                     <input type="number" id="bedroom" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='1'max='10' onChange={handlechange} value={formData.bedroom} required />
+     <p>Bedrooms</p>
+                 </div>
+                 <div className='flex gap-2 items-center'>
+                     <input type="number" id="bathroom" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='1'max='10' onChange={handlechange} value={formData.bathroom}  required />
+     <p>Bathrooms</p>
+                 </div>
+                 <div className='flex gap-2 items-center'>
+                     <input type="number" id="regularprice" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='50'max='10000' onChange={handlechange} value={formData.regularprice} required />
+                     <div className='flex flex-col items-center '>
+     <p>Regular Prices</p>
+         <span className>($/month)</span>
+     </div>
+                 </div>
+                 {formData.offer &&
+                 <div className='flex gap-2 items-center'>
+                     <input type="number" id="discountedprice" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='0'max='10000' onChange={handlechange} value={formData.discountedprice} required />
+     <div className='flex flex-col items-center '>
+     <p>Discounted Prices</p>
+         <span className>($/month)</span>
+     </div>
+                 </div>}
+                
+             </div>
+             </div>
 <div className='flex flex-col flex-1 space-y-6 '>
-<p className='font-semibold'>Images: <span className='font-normal text-gray-700 ml-2'>The first image will be the cover max(6)</span></p>
+<p className='font-semibold'>Images: <span className='font-normal text-gray-700 ml-2'>The first image will be the cover max(6)</span><br />
+<span className='font-normal text-gray-700 ml-16'>* Each file should be under 2 MB</span></p>
+
 <div className='flex gap-4'>
 <input type="file" id="images" onChange={(e)=>setfiles(e.target.files)} accept='image/*' multiple className='rounded-md border border-gray-500 p-2 w-full '/>
 
