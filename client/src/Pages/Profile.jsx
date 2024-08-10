@@ -19,7 +19,7 @@ export default function Profile() {
   const[filuploaderror,setfileuploaderror]=useState(false)
   const[formdata,setformdata]=useState({})
   const[currentlisting,setcurrentlisting]=useState([])
-  const[found,setfound]=useState('false');
+  const[found,setfound]=useState('true');
   const dispatch=useDispatch()
   // Firebase image upload rules
   // allow read;
@@ -225,8 +225,8 @@ console.log(error)
      {
      
       <div className='flex flex-col mt-10  '>
-        { (!currentlisting || currentlisting.length < 1) && found === 'false' ? (
-      <h1 className='text-2xl font-semibold text-center inputs'>No Listings Found!!!</h1>
+        { (!currentlisting || currentlisting.length < 1)  ? (
+      <h1 className='text-2xl font-semibold text-center inputs'> {found === 'false'?'No Listings Found!!!':" "}</h1>
     ):(  <>
         <h1 className='text-2xl font-semibold text-center'>Your listings</h1>
       {currentlisting.map((listing)=>(
