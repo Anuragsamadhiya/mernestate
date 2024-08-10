@@ -135,11 +135,7 @@ catch(error){
 }
 }
 const showlisting=async()=>{
-  if (!currentlisting||currentlisting.length < 1) {
-    setfound('false');
-} else {
-    setfound('true');
-}
+ 
   if(c==='no'){
     setC('yes');
     setcurrentlisting([]);
@@ -157,6 +153,11 @@ const showlisting=async()=>{
     }
     setcurrentlisting(data);
     setC('no')
+    if (currentlisting.length < 1) {
+      setfound('false');
+  } else {
+      setfound('true');
+  }
     // setfound('true');
   } catch (error) {
     toast.error("Failed getting listing")
