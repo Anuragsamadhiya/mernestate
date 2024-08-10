@@ -139,7 +139,7 @@ const showlisting=async()=>{
   if(c==='no'){
     setC('yes');
     setcurrentlisting([]);
-    // setfound('false')
+    setfound('true')
     return
   }
   try {
