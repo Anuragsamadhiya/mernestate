@@ -219,16 +219,16 @@ console.log(error)
         <p className='text-red-700 cursor-pointer ' onClick={handlesignout}>Sign Out</p>
       </div>
       <div className='text-center mt-12'>
-      <button className="text-white bg-green-700 p-2 w-1/2 rounded-lg  hover:opacity-85 " onClick={showlisting}  type="radio" name="my-accordion-2">{c=='yes'?'Show My Listing':'Hide My Listing'}</button>
+      <button className="text-white bg-green-700 p-2 w-1/2 rounded-lg  hover:opacity-85 " onClick={showlisting}  type="radio" name="my-accordion-2">{c=='yes'||found==='false'?'Show My Listing':'Hide My Listing'}</button>
       </div>
     
      {
      
-      <div className='flex flex-col mt-10  '>
+      <div className='flex flex-col mt-6  '>
         { (!currentlisting || currentlisting.length < 1)  ? (
       <h1 className='text-2xl font-semibold text-center inputs'> {found === 'false'?'No Listings Found!!!':" "}</h1>
     ):(  <>
-        <h1 className='text-2xl font-semibold text-center'>Your listings</h1>
+        <h1 className='text-2xl font-semibold text-center inputs'>Your listings</h1>
       {currentlisting.map((listing)=>(
 <div className='flex items-center justify-between gap-2 border my-4 md:-mx-72 ' key={listing._id}>
   <Link to={`/listing/${listing._id}`}>

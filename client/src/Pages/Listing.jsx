@@ -37,7 +37,7 @@ setloading(false);
   return (
     <main>
      {loading ? (
-  <span className="loading loading-spinner loading-lg"></span>
+  <span className="loading loading-spinner loading-lg self-center"></span>
 ) : (
     <div>
     <Swiper navigation>
