@@ -37,14 +37,16 @@ setloading(false);
   return (
     <main>
      {loading ? (
-  <span className="loading loading-spinner loading-lg self-center"></span>
+  <div className=' flex text-center justify-center w-full mt-10'>
+  <span className="loading loading-spinner loading-lg "></span>
+  </div>
 ) : (
     <div>
     <Swiper navigation>
     {formdata.imageUrl.map((url) => (
       <SwiperSlide key={url}>
         <div
-          className='md:h-[466px]  mt-0 h-[330px] w-full rounded-box'
+          className='md:h-[466px]  mt-3 h-[330px] w-full rounded-box'
           style={{
             background: `url(${url}) center no-repeat`,
             backgroundSize: 'cover',
@@ -73,10 +75,10 @@ setloading(false);
           )}
           <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
             <p className='text-2xl font-semibold inputs'>
-              {formdata.name} - ${' '}
+              {formdata.name} - INR{' '}
               {formdata.offer
-                ? +formdata.regularprice - +formdata.discountedprice.toLocaleString('en-US')
-                : formdata.regularprice.toLocaleString('en-US')}
+                ? +formdata.regularprice - +formdata.discountedprice.toLocaleString('en-IN')
+                : formdata.regularprice.toLocaleString('en-IN')}
               {formdata.type === 'rent' && ' / month'}
             </p>
             <p className='flex items-center  gap-2 text-slate-600  text-sm'>
@@ -89,7 +91,7 @@ setloading(false);
               </p>
               {formdata.offer && (
                 <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                  ${+formdata.discountedprice} OFF
+                  Rs{' '}{+formdata.discountedprice} OFF
                 </p>
               )}
             </div>

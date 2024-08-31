@@ -6,6 +6,9 @@ import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import ListingCard from '../Components/ListingCard.jsx';
 import { useSelector } from 'react-redux';
+// import { FaArrowUpRight } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+
 
 SwiperCore.use([Navigation]);
 
@@ -51,15 +54,15 @@ export default function Home() {
   return (
     <div className=' ' >
       <div className='md:max-w-5xl max-w-8xl md:p-24 p-8 flex flex-col gap-4 '>
-        <h1 className='text-gray-600 md:text-6xl  text-2xl font-serif  'style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>Unlock Your Dream Home with Us   Where Every <span className='text-red-700'>property</span> Feels Like Home! </h1>
-       {currentUser && <Link to='/profile'><button className='absolute md:top-40 top-72  right-5 px-3 py-1 md:py-2 bg-green-500 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-400'>
-View Your profile</button></Link> }
+        <h1 className='text-gray-600 md:text-6xl text-2xl font-semibold  '>Unlock Your Dream Home with Us Where Every <span className='text-red-700'>property</span> Feels Like Home! </h1>
+       {currentUser && <Link to='/profile'><button className='absolute md:top-40 top-72  right-5 px-3 py-1 md:py-2 bg-green-500  font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center space-x-2'>
+<span className=''>View Profile</span><FaExternalLinkAlt /> </button> </Link> }
          <div className='max-w-3xl '>
       <p className=' text-gray-700 text-lg font-semibold'>
        Discover the perfect property that feels like home with us today!
     </p>
       </div>
-      <Link to={'/search'} className='text-blue-800 text-xl font-bold hover:underline'>Lets Started now....</Link>      
+      <Link to={'/search'} className='text-blue-800 text-xl font-bold hover:underline'>Lets Explore now....</Link>      
       </div>
 
 {/* swiper */}
@@ -73,14 +76,16 @@ View Your profile</button></Link> }
                   background: `url(${listing.imageUrl[0]}) center no-repeat`,
                   backgroundSize: 'cover',
                 }}
-                className='md:h-[550px] h-[330px] w-[82%]  mx-auto rounded-box'
+                className='md:h-[550px] h-[330px] w-[82%]  mx-auto  rounded-box'
                 key={listing._id}
               ></div>
             </SwiperSlide>
           ))}
       </Swiper>
+
+
 <div className='max-w-6xl mx-auto mt-14 flex flex-col gap-9 '>
-      <div className='flex flex-col px-2 '>
+      <div className='flex flex-col px-2  shadow-lg bg-cyan-50 border rounded-lg'>
       {offerListings && offerListings.length > 0 && (
     <>
       <p className='text-slate-800 text-xl font-semibold'>Recent Offers</p>
@@ -92,19 +97,18 @@ View Your profile</button></Link> }
               <ListingCard key={listing._id} listing={listing}/>)}
 </div>
       </div>
-      <hr />
-      <div className='flex flex-col ml-3 '> {rentListings && rentListings.length > 0 && (
+      <div className='flex flex-col ml-3 px-2 shadow-lg bg-cyan-50 border rounded-lg '> {rentListings && rentListings.length > 0 && (
     <>
       <p className='text-slate-800 text-xl font-semibold'>Recent Places for Rent</p>
       <Link to='/search?type=rent' className='text-red-800 hover:underline'>Show more....</Link>
     </>
   )}
-        <div className='flex flex-wrap gap-6'>
+        <div className='flex flex-wrap gap-6 '>
 {rentListings &&  rentListings.map((listing)=>
               <ListingCard key={listing._id} listing={listing}/>)}
 </div>
       </div>
-      <div className='flex flex-col ml-3 '>
+      <div className='flex flex-col ml-3  px-2  shadow-lg bg-cyan-50 border rounded-lg'>
       {saleListings && saleListings.length > 0 && (
     <>
       <p className='text-slate-800 text-xl font-semibold'>Recent Places for Sale</p>

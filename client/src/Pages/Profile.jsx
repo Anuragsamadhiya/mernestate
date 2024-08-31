@@ -10,7 +10,8 @@ import { FaEye } from 'react-icons/fa';
 import { updateuserfail,updateusersuccess,deleteuserfail,deleteusersuccess} from '../redux/user/useSlice.js';
 //Ek baar ye chatgpt pe daal laina handlefileupload function FireBase smj laina mtlb revise krlaina
 export default function Profile() {
-  const fileref=useRef(null)
+  const fileref=useRef(null);
+  const filereff=useRef(null);
   const { currentUser } = useSelector((state) => state.user);
   const[file,setfile]=useState(undefined)
   const[fileperc,setfileprc]=useState(0);
@@ -215,12 +216,28 @@ console.log(error)
       <Link to='/CreateListings' className="bg-green-400 text-white rounded-lg hover:opacity-85 uppercase p-2 text-center">Add Listing</Link>
       </form>
       <div className='flex justify-between  mt-5'>
-        <p className='text-red-700 cursor-pointer' onClick={handledelete}>Delete Account</p>
+        <p className='text-red-700 cursor-pointer' onClick={() => filereff.current.click()}>Delete Account</p>
         <p className='text-red-700 cursor-pointer ' onClick={handlesignout}>Sign Out</p>
       </div>
       <div className='text-center mt-12'>
       <button className="text-white bg-green-700 p-2 w-1/2 rounded-lg  hover:opacity-85 " onClick={showlisting}  type="radio" name="my-accordion-2">{c=='yes'||found==='false'?'Show My Listing':'Hide My Listing'}</button>
       </div>
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+<button className="btn hidden" ref={filereff} onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button>
+<dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg text-red-500">Delete!</h3>
+    <p className="py-2 mt-3">Are you sure you want to delete your account!</p>
+    <div className="modal-action">
+      <form method="dialog" className='flex justify-between w-full'>
+        {/* if there is a button in form, it will close the modal */}
+        <button className="text-black p-3 hover:bg-slate-600 hover:rounded-md">Close</button>
+        <button className="text-red-500 p-3 hover:bg-red-600 hover:rounded-md hover:text-black" onClick={handledelete}>Delete</button>
+
+      </form>
+    </div>
+  </div>
+</dialog>
     
      {
      
@@ -239,8 +256,10 @@ console.log(error)
 <Link to={`/listing/${listing._id}`} className='w-32 md:w-56'>
 <p className='md:text-xl text-slate-600 hover:underline truncate font-serif'>{listing.name}</p> 
  </Link>
+ 
  <div className='flex flex-col gap-2 text-center mr-2'>
-  <p className='text-red-500 cursor-pointer font-bold' onClick={()=>handlelistingdelete(listing._id)}>Delete</p>
+  <p className='text-red-500 cursor-pointer font-bold' onClick={()=>handlelistingdelete(listing._id)} 
+  >Delete</p>
   <Link to={`/UpdateListings/${listing._id}`}><p className='text-blue-700 cursor-pointer font-bold' >Edit</p> </Link>
  </div>
 </div>

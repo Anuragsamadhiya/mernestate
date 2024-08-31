@@ -17,7 +17,7 @@ const navigate=useNavigate();
         name:"",
         description:"",
           address:"",
-      regularprice:50,
+      regularprice:5000,
       discountedprice:0,
         bathroom:1,
       bedroom:2,
@@ -196,10 +196,10 @@ return;
 <p>Bathrooms</p>
             </div>
             <div className='flex gap-2 items-center'>
-                <input type="number" id="regularprice" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='50'max='10000' onChange={handlechange} value={formData.regularprice} required />
+                <input type="number" id="regularprice" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='5000'max='10000000' onChange={handlechange} value={formData.regularprice} required />
                 <div className='flex flex-col items-center '>
 <p>Regular Prices</p>
-    <span className>($/month)</span>
+    <span className>(Rs/month)</span>
 </div>
             </div>
             {formData.offer &&
@@ -207,7 +207,7 @@ return;
                 <input type="number" id="discountedprice" className='p-2 rounded-lg border border-gray-300 inputss w-20' min='0'max='10000' onChange={handlechange} value={formData.discountedprice} required />
 <div className='flex flex-col items-center '>
 <p>Discounted Prices</p>
-    <span className>($/month)</span>
+    <span className>(Rs/month)</span>
 </div>
             </div>}
            

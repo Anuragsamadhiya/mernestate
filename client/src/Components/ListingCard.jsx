@@ -26,10 +26,10 @@ export default function ListingCard({listing}) {
           {listing.description}
         </p>
         <p className='text-slate-500 mt-2 font-semibold '>
-          $
+        INR{' '}
           {listing.offer
-             ? +listing.regularprice - +listing.discountedprice.toLocaleString('en-US')
-             : listing.regularprice.toLocaleString('en-US')}
+             ? +listing.regularprice - +listing.discountedprice.toLocaleString('en-IN')
+             : listing.regularprice.toLocaleString('en-IN')}
           {listing.type === 'rent' && ' / month'}
         </p>
         <div className='text-slate-700 flex gap-4'>

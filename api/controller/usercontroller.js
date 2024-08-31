@@ -26,16 +26,20 @@ if(req.user.id!==req.params.id)return next(errorHandler(404,"Cant update others 
         next(error)
     }
 };
+
 export const deleteuser = async (req, res, next) => {
     if (req.user.id !== req.params.id)
       return next(errorHandler(401, 'You can only delete your own account!'));
     try {
       await user.findByIdAndDelete(req.params.id);
+      await Listing.deleteMany({ userRef: req.params.id });
+
       res.clearCookie('access_token');
       res.status(200).json('User has been deleted!');
     } catch (error) {
       next(error);
     }
+    
   };
 export const getuserlistings=async(req,res,next)=>{
   if (req.user.id == req.params.id){
