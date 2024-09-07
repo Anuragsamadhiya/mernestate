@@ -154,7 +154,7 @@ const showlisting=async()=>{
     }
     setcurrentlisting(data);
     setC('no')
-    if (currentlisting.length < 1) {
+    if (data.length < 1) {
       setfound('false');
   } else {
       setfound('true');
