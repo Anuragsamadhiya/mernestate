@@ -15,7 +15,7 @@ export default function Search() {
         parking:false,
         furnished:false,
         offer:false,
-        sort:'created_at',
+        sort:'createdAt',
         order:'desc',
         address:''
      });
@@ -44,7 +44,7 @@ export default function Search() {
             parking: parkingFromUrl === 'true' ? true : false,
             furnished: furnishedFromUrl === 'true' ? true : false,
             offer: offerFromUrl === 'true' ? true : false,
-            sort: sortFromUrl || 'created_at',
+            sort: sortFromUrl || 'createdAt',
             order: orderFromUrl || 'desc',
             address:searchTermFromUrl || '',
           });
