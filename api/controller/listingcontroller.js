@@ -91,8 +91,7 @@ export const getlistings = async (req, res, next) => { //search functionality ba
   
       const sort = req.query.sort || 'createdAt';
   
-      const order = req.query.order || 'desc';
-
+      const order = req.query.order === 'asc' ? 1 : -1;
   
       const listings = await Listing.find({ //finding listing which satisfy these condition  
         $or: [
