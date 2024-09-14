@@ -80,7 +80,7 @@ if(e.target.id==='parking'||e.target.id==='furnished'||e.target.id==='offer'){
 }
 
 if(e.target.id==='sort_order'){
-const sort=e.target.value.split('_')[0]||'created_at';
+const sort=e.target.value.split('_')[0]||'createdAt';
 const order=e.target.value.split('_')[1]||'desc';
 setsidebarData({...sidebarData,sort,order})
 
@@ -145,7 +145,7 @@ value={sidebarData.searchTerm}/>
 <div className='flex gap-2 items-center'>
 <label >Sort:</label>
 <select id='sort_order' className='input font-medium text-xs p-2 rounded-md'
-onChange={handlechange} defaultValue={'created_at_desc'}>
+onChange={handlechange} defaultValue={'createdAt_desc'}>
 <option value={'regularprice_desc'}>Price High to Low</option>
 <option value={'regularprice_asc'}>Price Low to High</option>
 <option value={'createdAt_desc'} >Latest </option>
