@@ -74,13 +74,14 @@ setloading(false);
             </p>
           )}
           <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
-            <p className='text-2xl font-semibold inputs'>
-              {formdata.name} - INR{' '}
-              {formdata.offer
-                ? +formdata.regularprice - +formdata.discountedprice.toLocaleString('en-IN')
-                : formdata.regularprice.toLocaleString('en-IN')}
-              {formdata.type === 'rent' && ' / month'}
-            </p>
+          <p className='text-2xl font-semibold inputs'>
+  {formdata.name} - INR{' '}
+  {formdata.offer
+    ? (+formdata.regularprice - +formdata.discountedprice).toLocaleString('en-IN')
+    : (+formdata.regularprice).toLocaleString('en-IN')}
+  {formdata.type === 'rent' && ' / month'}
+</p>
+
             <p className='flex items-center  gap-2 text-slate-600  text-sm'>
               <FaMapMarkerAlt className='text-green-700' />
               {formdata.address}
