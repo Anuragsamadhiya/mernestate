@@ -28,7 +28,7 @@ A responsive, full-stack real estate listing platform where users can sign up, l
 
 ```bash
 # Clone the repository
-git clone https://github.com/Anuragsamadhiya/real-estate-app.git
+
 
 # Backend setup
 cd server
